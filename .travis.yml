@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "10"
+before_deploy:
+  - umi build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+  repo: lmikoto/tools
+  local_dir: dist
+  target_branch: gh-pages
+  fqdn: https://lmikoto.github.io/tools
+  project_name: tools
+  email: lmikoto@outlook.com
+  name: lmikoto
