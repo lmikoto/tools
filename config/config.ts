@@ -96,13 +96,13 @@ export default {
           routes: [
             {
               path: '/',
-              redirect: '/welcome',
+              redirect: '/json',
             },
             {
-              path: '/welcome',
-              name: 'welcome',
+              name: 'json',
               icon: 'smile',
-              component: './Welcome',
+              path: '/json',
+              component: './json',
             },
             {
               path: '/admin',
