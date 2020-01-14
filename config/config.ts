@@ -112,22 +112,10 @@ export default {
               authority: ['admin'],
             },
             {
-              name: '流程编辑器',
+              name: 'cron',
               icon: 'smile',
-              path: '/editorflow',
-              component: './EditorFlow',
-            },
-            {
-              name: '拓扑编辑器',
-              icon: 'smile',
-              path: '/editorkoni',
-              component: './EditorKoni',
-            },
-            {
-              name: '脑图编辑器',
-              icon: 'smile',
-              path: '/editormind',
-              component: './EditorMind',
+              path: '/cron',
+              component: './cron',
             },
             {
               component: './404',
