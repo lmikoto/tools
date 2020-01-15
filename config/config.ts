@@ -161,4 +161,5 @@ export default {
   //     pathRewrite: { '^/server': '' },
   //   },
   // },
+  publicPath: './',
 } as IConfig;
