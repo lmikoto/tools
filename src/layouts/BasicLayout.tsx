@@ -3,7 +3,7 @@ import ProLayout, {
   BasicLayoutProps as ProLayoutProps,
   Settings,
 } from '@ant-design/pro-layout';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'umi';
 import { Dispatch } from 'redux';
 import { connect } from 'dva';
@@ -11,7 +11,6 @@ import { Layout } from 'antd';
 import { formatMessage } from 'umi-plugin-react/locale';
 
 import { ConnectState } from '@/models/connect';
-import logo from '../assets/logo.svg';
 
 const { Footer } = Layout;
 
@@ -39,17 +38,6 @@ const footerRender: BasicLayoutProps['footerRender'] = () => <Footer />;
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const { dispatch, children, settings } = props;
-  /**
-   * constructor
-   */
-
-  useEffect(() => {
-    if (dispatch) {
-      dispatch({
-        type: 'user/fetchCurrent',
-      });
-    }
-  }, []);
 
   const handleMenuCollapse = (payload: boolean): void => {
     if (dispatch) {
@@ -62,7 +50,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
 
   return (
     <ProLayout
-      logo={logo}
+      logo={<div />}
       menuHeaderRender={(logoDom, titleDom) => (
         <Link to="/">
           {logoDom}

@@ -43,10 +43,10 @@ export interface DefaultSettings {
 }
 
 export default {
-  navTheme: 'dark',
+  navTheme: 'light',
   // 拂晓蓝
   primaryColor: 'daybreak',
-  layout: 'sidemenu',
+  layout: 'topmenu',
   contentWidth: 'Fluid',
   fixedHeader: false,
   autoHideHeader: false,
@@ -55,7 +55,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'Ant Design Pro',
+  title: 'Miko Tools',
   pwa: false,
   iconfontUrl: '',
 } as DefaultSettings;

@@ -1,10 +1,12 @@
 import Cron from '@/pages/cron/components/index';
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Input, List, message } from 'antd';
 
 import { queryNext } from '@/services/cron';
 
 import copy from 'copy-to-clipboard';
+import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import styles from '@/pages/json/index.less';
 
 export default () => {
   const [value, setValue] = useState<string>('0 0 0 * * ?');
@@ -23,7 +25,7 @@ export default () => {
   }, [value]);
 
   return (
-    <Fragment>
+    <PageHeaderWrapper className={styles.main} title={false}>
       <Cron onChange={setValue} tabType="card" showCrontab={false} value={value} />
       <List>
         <List.Item>Cron表达式</List.Item>
@@ -42,6 +44,6 @@ export default () => {
           <List.Item key={k.toString()}>{i}</List.Item>
         ))}
       </List>
-    </Fragment>
+    </PageHeaderWrapper>
   );
 };
