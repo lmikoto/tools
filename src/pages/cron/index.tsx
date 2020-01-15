@@ -1,27 +1,27 @@
 import Cron from '@/pages/cron/components/index';
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Button, Input, List, message } from 'antd';
-import CronConvert from 'cron-converter';
+
+import { queryNext } from '@/services/cron';
 
 import copy from 'copy-to-clipboard';
 
 export default () => {
   const [value, setValue] = useState<string>('0 0 0 * * ?');
+  const [next, setNext] = useState<string[]>([]);
   const onCopy = () => {
-    const cron: any = new CronConvert();
-    cron.fromString(value);
-    console.log(
-      cron
-        .schedule()
-        .next()
-        .format(),
-    );
     if (copy(value)) {
       message.success('复制成功');
     } else {
       message.error('复制失败');
     }
   };
+  useEffect(() => {
+    queryNext(value, 10).then(res => {
+      setNext(res);
+    });
+  }, [value]);
+
   return (
     <Fragment>
       <Cron onChange={setValue} tabType="card" showCrontab={false} value={value} />
@@ -35,6 +35,12 @@ export default () => {
             复制
           </Button>
         </List.Item>
+      </List>
+      <List>
+        <List.Item>下次执行时间</List.Item>
+        {next.map((i, k) => (
+          <List.Item key={k.toString()}>{i}</List.Item>
+        ))}
       </List>
     </Fragment>
   );

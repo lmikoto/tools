@@ -51,6 +51,9 @@ const errorHandler = (error: { response: Response }): Response => {
 const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
+  // eslint-disable-next-line no-undef
+  prefix: BACKEND_URL,
 });
 
+// eslint-disable-next-line no-undef
 export default request;
