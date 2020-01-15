@@ -162,4 +162,5 @@ export default {
   //   },
   // },
   publicPath: './',
+  history: 'hash',
 } as IConfig;
