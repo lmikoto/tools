@@ -72,27 +72,13 @@ export default {
   targets: {
     ie: 11,
   },
-  // umi routes: https://umijs.org/zh/guide/router.html
   routes: [
     {
-      path: '/user',
-      component: '../layouts/UserLayout',
-      routes: [
-        {
-          name: 'login',
-          path: '/user/login',
-          component: './user/login',
-        },
-      ],
-    },
-    {
       path: '/',
-      component: '../layouts/SecurityLayout',
       routes: [
         {
           path: '/',
           component: '../layouts/BasicLayout',
-          authority: ['admin', 'user'],
           routes: [
             {
               path: '/',
@@ -105,25 +91,12 @@ export default {
               component: './json',
             },
             {
-              path: '/admin',
-              name: 'admin',
-              icon: 'crown',
-              component: './Admin',
-              authority: ['admin'],
-            },
-            {
               name: 'cron',
               icon: 'smile',
               path: '/cron',
               component: './cron',
             },
-            {
-              component: './404',
-            },
           ],
-        },
-        {
-          component: './404',
         },
       ],
     },
@@ -151,7 +124,7 @@ export default {
         resourcePath: string;
       },
       _: string,
-      localName: string
+      localName: string,
     ) => {
       if (
         context.resourcePath.includes('node_modules') ||

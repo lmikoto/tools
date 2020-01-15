@@ -1,9 +1,3 @@
-/**
- * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout.
- * You can view component api by:
- * https://github.com/ant-design/ant-design-pro-layout
- */
-
 import ProLayout, {
   MenuDataItem,
   BasicLayoutProps as ProLayoutProps,
@@ -13,29 +7,13 @@ import React, { useEffect } from 'react';
 import { Link } from 'umi';
 import { Dispatch } from 'redux';
 import { connect } from 'dva';
-import {  Result, Button, Layout } from 'antd';
+import { Layout } from 'antd';
 import { formatMessage } from 'umi-plugin-react/locale';
 
-import Authorized from '@/utils/Authorized';
-import RightContent from '@/components/GlobalHeader/RightContent';
 import { ConnectState } from '@/models/connect';
-import { getAuthorityFromRouter } from '@/utils/utils';
 import logo from '../assets/logo.svg';
 
 const { Footer } = Layout;
-
-const noMatch = (
-  <Result
-    status="403"
-    title="403"
-    subTitle="Sorry, you are not authorized to access this page."
-    extra={
-      <Button type="primary">
-        <Link to="/user/login">Go Login</Link>
-      </Button>
-    }
-  />
-);
 
 export interface BasicLayoutProps extends ProLayoutProps {
   breadcrumbNameMap: {
@@ -47,33 +25,20 @@ export interface BasicLayoutProps extends ProLayoutProps {
   settings: Settings;
   dispatch: Dispatch;
 }
-export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
-  breadcrumbNameMap: {
-    [path: string]: MenuDataItem;
-  };
-};
 
-/**
- * use Authorized check all menu item
- */
 const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
   menuList.map(item => {
     const localItem = {
       ...item,
       children: item.children ? menuDataRender(item.children) : [],
     };
-    return Authorized.check(item.authority, localItem, null) as MenuDataItem;
+    return localItem;
   });
 
-
-const footerRender: BasicLayoutProps['footerRender'] = () => {
-  return (
-    <Footer />
-  );
-};
+const footerRender: BasicLayoutProps['footerRender'] = () => <Footer />;
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { dispatch, children, settings, location = { pathname: '/' } } = props;
+  const { dispatch, children, settings } = props;
   /**
    * constructor
    */
@@ -85,9 +50,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       });
     }
   }, []);
-  /**
-   * init variables
-   */
+
   const handleMenuCollapse = (payload: boolean): void => {
     if (dispatch) {
       dispatch({
@@ -95,10 +58,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
         payload,
       });
     }
-  };
-  // get children authority
-  const authorized = getAuthorityFromRouter(props.route.routes, location.pathname || '/') || {
-    authority: undefined,
   };
 
   return (
@@ -138,13 +97,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
       footerRender={footerRender}
       menuDataRender={menuDataRender}
       formatMessage={formatMessage}
-      rightContentRender={() => <RightContent />}
       {...props}
       {...settings}
     >
-      <Authorized authority={authorized!.authority} noMatch={noMatch}>
-        {children}
-      </Authorized>
+      {children}
     </ProLayout>
   );
 };
