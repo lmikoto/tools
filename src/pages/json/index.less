@@ -1,12 +1,21 @@
 @import '~antd/es/style/themes/default.less';
 
-.main {
-  width: 100%;
-  background: @component-background;
+.borderStyle {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+}
+
+.borderHover {
+  border-color: #40a9ff;
 }
 
 .pageHeight {
   height: 87vh !important;
+}
+
+.main {
+  width: 100%;
+  background: @component-background;
 }
 
 .container {
@@ -17,13 +26,41 @@
 }
 
 .treeContainer {
-  border: 1px solid rgb(217, 217, 217);
-  border-radius: 4px;
   &:extend(.pageHeight);
+  &:extend(.borderStyle);
   &:hover {
-    border-color: #40a9ff;
+    &:extend(.borderHover);
+    .tools {
+      &:extend(.borderHover);
+    }
   }
   ul {
     background: @component-background !important;
   }
+}
+
+.tools {
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+  &:extend(.borderStyle);
+  :global {
+    .anticon {
+      margin-right: 15px;
+      font-size: 16px;
+    }
+  }
+}
+
+.zip {
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow-x: scroll;
+  white-space: nowrap;
+  border-style: none;
 }
