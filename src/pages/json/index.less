@@ -4,3 +4,26 @@
   width: 100%;
   background: @component-background;
 }
+
+.pageHeight {
+  height: 87vh !important;
+}
+
+.container {
+  padding-bottom: 20px;
+}
+.textarea {
+  &:extend(.pageHeight);
+}
+
+.treeContainer {
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  &:extend(.pageHeight);
+  &:hover {
+    border-color: #40a9ff;
+  }
+  ul {
+    background: @component-background !important;
+  }
+}
