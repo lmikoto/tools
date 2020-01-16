@@ -25,7 +25,6 @@ export interface GlobalModelType {
     changeNoticeReadState: Effect;
   };
   reducers: {
-    changeLayoutCollapsed: Reducer<GlobalModelState>;
     saveNotices: Reducer<GlobalModelState>;
     saveClearedNotices: Reducer<GlobalModelState>;
   };
@@ -102,12 +101,6 @@ const GlobalModel: GlobalModelType = {
   },
 
   reducers: {
-    changeLayoutCollapsed(state = { notices: [], collapsed: true }, { payload }): GlobalModelState {
-      return {
-        ...state,
-        collapsed: payload,
-      };
-    },
     saveNotices(state, { payload }): GlobalModelState {
       return {
         collapsed: false,

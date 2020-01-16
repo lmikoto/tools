@@ -37,16 +37,7 @@ const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
 const footerRender: BasicLayoutProps['footerRender'] = () => <Footer />;
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { dispatch, children, settings } = props;
-
-  const handleMenuCollapse = (payload: boolean): void => {
-    if (dispatch) {
-      dispatch({
-        type: 'global/changeLayoutCollapsed',
-        payload,
-      });
-    }
-  };
+  const { children, settings } = props;
 
   return (
     <ProLayout
@@ -57,7 +48,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
           {titleDom}
         </Link>
       )}
-      onCollapse={handleMenuCollapse}
       menuItemRender={(menuItemProps, defaultDom) => {
         if (menuItemProps.isUrl || menuItemProps.children || !menuItemProps.path) {
           return defaultDom;
