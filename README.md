@@ -14,5 +14,5 @@
 ## TODO
 
 - Cron 使用 ts 重构
-- Json 解析工具
+- Json 解析失败时显示 错误位置
 - 移除 user
