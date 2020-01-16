@@ -1,5 +1,5 @@
 import { IConfig, IPlugin } from 'umi-types';
-import defaultSettings from './defaultSettings'; // https://umijs.org/config/
+import defaultSettings from './defaultSettings';
 
 import slash from 'slash2';
 import themePluginConfig from './themePluginConfig';
@@ -95,6 +95,12 @@ export default {
               path: '/cron',
               component: './cron',
             },
+            {
+              name: 'regexp',
+              icon: 'smile',
+              path: '/regexp',
+              component: './regexp',
+            },
           ],
         },
       ],
@@ -109,7 +115,8 @@ export default {
   },
   define: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
-      ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION || '', // preview.pro.ant.design only do not use in your production ; preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
+      ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION || '',
+    // preview.pro.ant.design only do not use in your production ; preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
     BACKEND_URL:
       'development' === process.env.NODE_ENV
         ? 'http://localhost:8080'
@@ -153,7 +160,8 @@ export default {
   },
   manifest: {
     basePath: '/',
-  }, // chainWebpack: webpackPlugin,
+  },
+  // chainWebpack: webpackPlugin,
   // proxy: {
   //   '/server/api/': {
   //     target: 'https://preview.pro.ant.design/',
