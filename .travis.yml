@@ -12,7 +12,7 @@ deploy:
   repo: lmikoto/tools
   local_dir: dist
   target_branch: gh-pages
-  fqdn: https://lmikoto.github.io/tools
+  fqdn: tools.lmikoto.com
   project_name: tools
   email: lmikoto@outlook.com
   name: lmikoto
