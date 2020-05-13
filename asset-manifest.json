@@ -1,0 +1,19 @@
+{
+  "/vendors.css": "./vendors.9a2e39ce.chunk.css",
+  "/vendors.js": "./vendors.cd75d78e.async.js",
+  "/layouts__BasicLayout.js": "./layouts__BasicLayout.d6ad4753.async.js",
+  "/p__404.js": "./p__404.0a4796e5.async.js",
+  "/p__cron.css": "./p__cron.07d8259b.chunk.css",
+  "/p__cron.js": "./p__cron.f1e32da4.async.js",
+  "/p__json.css": "./p__json.ad70382d.chunk.css",
+  "/p__json.js": "./p__json.54d162db.async.js",
+  "/p__regexp.css": "./p__regexp.56f282a7.chunk.css",
+  "/p__regexp.js": "./p__regexp.48198809.async.js",
+  "/umi.css": "./umi.4243f3e3.css",
+  "/umi.js": "./umi.9c6377a7.js",
+  "/favicon.png": "./favicon.png",
+  "/icons/icon-128x128.png": "./icons/icon-128x128.png",
+  "/icons/icon-192x192.png": "./icons/icon-192x192.png",
+  "/icons/icon-512x512.png": "./icons/icon-512x512.png",
+  "/index.html": "./index.html"
+}
