@@ -8,7 +8,7 @@
 
 部署地址
 
-- [https://lmikoto.github.io/tools](https://lmikoto.github.io/tools)
+- [https://t.lmikoto.com](https://t.lmikoto.com)
 - [https://miko-tools.netlify.com/](https://miko-tools.netlify.com/)
 
 ## Feature
